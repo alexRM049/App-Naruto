@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "n21PaB1Axrk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexander.ramirez\\Desktop\\portfolio\\Naruto-app\\MyFirstApi\\MyFirstApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexander.ramirez\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "C:\\Users\\alexander.ramirez\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

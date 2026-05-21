@@ -1,0 +1,78 @@
+<div class="catalog-section py-5">
+  <div class="container">
+    <!-- Header with Orange Glow & Naruto aesthetic -->
+    <div class="text-center mb-5 catalog-header animate-fade-in">
+      <div class="logo-badge mb-2">
+        <span class="badge rounded-pill chakra-badge px-3 py-2 text-uppercase tracking-wider">
+          <i class="bi bi-fire me-1 text-orange animate-pulse"></i> Leaf Shinobi Archive
+        </span>
+      </div>
+      <h1 class="display-4 fw-black text-white mt-3 mb-2 tracking-tight">
+        SHINOBI <span class="text-gradient">CATALOG</span>
+      </h1>
+      <p class="lead text-gray-400 mx-auto max-w-md">
+        Access the hidden profiles of the elite ninja forces and their powerful techniques.
+      </p>
+      <div class="divider-glow mx-auto mt-3"></div>
+    </div>
+    @defer (on immediate) {
+    <!-- Cards Grid -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+      @for (ninja of shinobi(); track ninja.id) {
+        <div class="col">
+          <div class="card h-100 shinobi-card border-0 text-white overflow-hidden">
+            <!-- Image Area with Rank Badge -->
+            <div class="card-image-wrapper position-relative">
+              <img 
+                [src]="ninja.photoUrl || 'placeholder-ninja.png'" 
+                (error)="$any($event).target.src = 'assets/placeholder-ninja.jpg'"
+                [alt]="ninja.name" 
+                class="card-img-top shinobi-img"
+                onerror="this.src='placeholder-ninja.png'"
+              >
+              <div class="image-gradient-overlay"></div>
+              
+              <!-- Floating Rank Badge -->
+              <span class="badge rank-badge position-absolute" [class]="'rank-' + ninja.rank.toLowerCase()">
+                {{ ninja.rank }}
+              </span>
+            </div>
+
+            <!-- Card Content -->
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="card-title h5 fw-bold mb-1 text-white shinobi-name">{{ ninja.name }}</h3>
+              
+              <!-- Village details -->
+              <p class="card-text text-gray-400 small mb-3 d-flex align-items-center flex-wrap gap-1">
+                <i class="bi bi-geo-alt-fill text-orange me-1_5"></i>
+                <span class="village-text">{{ ninja.village?.name || 'Unknown Village' }}</span>
+                
+                  <span class="ms-1_5 badge bg-dark-pill text-orange font-mono x-small">
+                  </span>
+                
+              </p>
+
+              <!-- Jutsus -->
+              <div class="mt-auto">
+                <h4 class="jutsu-title x-small text-uppercase tracking-wider fw-bold text-gray-500 mb-2">
+                  <i class="bi bi-lightning-charge-fill me-1"></i> Signature Jutsus
+                </h4>
+                <div class="d-flex flex-wrap gap-1_5">
+                  @for (jutsu of ninja.jutsus; track jutsu.name) {
+                    <span class="badge jutsu-chip element-badge" [attr.data-element]="jutsu.element">
+                      <i class="bi me-1 element-icon" [class]="getElementIcon(jutsu.element)"></i>
+                      {{ jutsu.name }}
+                    </span>
+                  } @empty {
+                    <span class="text-muted x-small italic">No recorded techniques</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+  </div>
+</div>
