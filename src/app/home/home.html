@@ -1,0 +1,256 @@
+    <div class="archive-container">
+      
+      <!-- Subtle Tactical Grid Overlay for Depth -->
+      <div class="tactical-grid-overlay"></div>
+
+      <!-- Premium Custom Toast System -->
+      <div class="toast-wrapper">
+        @for (toast of toasts(); track toast.id) {
+          <div class="toast-card">
+            <div class="toast-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <div class="toast-content">
+              <h4 class="toast-title">{{ toast.title }}</h4>
+              <p class="toast-desc">{{ toast.message }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Banner Header -->
+      <header class="archive-header">
+        <div class="shinobi-badge" (click)="setView('home')">
+          <span class="badge-pulse"></span>
+          Leaf Shinobi Archive
+        </div>
+        <h1 class="main-title" (click)="setView('home')">
+          SHINOBI <span class="accent-orange">CATALOG</span>
+        </h1>
+        <p class="subtitle">
+          Access the hidden profiles of the elite ninja forces and register custom parameters within the Leaf Archive.
+        </p>
+        <div class="divider-line"></div>
+      </header>
+
+      <!-- App Content Router Container -->
+      <main class="main-content">
+
+        <!-- HOME PAGE VIEW (GLOWING TACTICAL GRID INDEX) -->
+        @if (currentView() === 'home') {
+          <div class="view-container">
+            <div class="view-intro">
+              <h2 class="intro-headline">Central Roster Interface</h2>
+              <p class="intro-sub text-gray-500">Select an archival operational vector to start modifying or viewing records.</p>
+            </div>
+            
+            <div class="dashboard-grid">
+              <!-- Card 1: Catalog -->
+               
+              <a [routerLink]="['/catalog']" class="dashboard-card">
+                <div class="card-glow-layer"></div>
+                <div class="card-header-row">
+                  <div class="icon-frame">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A2.25 2.25 0 0 1 12.75 21.5h-1.5a2.25 2.25 0 0 1-2.25-2.263V19.13m4.5-12.13a4.5 4.5 0 0 0-9 0c0 1.25.434 2.4 1.157 3.32m3.343-4.32a4.5 4.5 0 0 1 4.5 4.5c0 1.25-.434 2.4-1.157 3.32m0-6.64v-.003c0-1.113-.285-2.16-.786-3.07" /></svg>
+                  </div>
+                  <span class="hud-status-badge status-green">System Operational</span>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">Browse Catalog</h3>
+                  <p class="card-description">
+                    Query, filter, and inspect detailed dossiers of registered Shinobi, their village origins, and combat stats.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  Access Archives 
+                  <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </div>
+              </a>
+            
+
+              <!-- Card 2: Add Shinobi -->
+<a [routerLink]="['/shinobi-form']" class="dashboard-card">
+  <div class="card-glow-layer"></div>
+  <div class="card-header-row">
+    <div class="icon-frame">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5 12 11.25 5 7.5m14 0v7.5L12 18.75 5 15V7.5m14 0L12 3.75 5 7.5M12 11.25v7.5" /></svg>
+    </div>
+    <span class="hud-status-badge status-orange">Database Input</span>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">Register Shinobi</h3>
+    <p class="card-description">
+      Add new entries to the global network. Map their specialized techniques, and balance their combat power.
+    </p>
+  </div>
+  <div class="card-footer">
+    Deploy Ninja
+    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+  </div>
+</a>
+            
+
+              <!-- Card 3: Add Jutsu -->
+              <a [routerLink]="['/jutsu-form']" class="dashboard-card">
+                <div class="card-glow-layer"></div>
+                <div class="card-header-row">
+                  <div class="icon-frame">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+                  </div>
+                  <span class="hud-status-badge status-orange">Secret Scrolls</span>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">Forge New Jutsu</h3>
+                  <p class="card-description">
+                    Document new secret techniques, classifying their elemental nature (Katon, Raiton, etc.) and difficulty.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  Inscribe Scroll
+                  <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </div>
+              </a>
+
+              <!-- Card 4: Add Village -->
+              <div (click)="setView('add-village')" class="dashboard-card">
+                <div class="card-glow-layer"></div>
+                <div class="card-header-row">
+                  <div class="icon-frame">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-10.5V18m-9-3.75h.008v.008H6V11.25m.008 0H6v.008h.008V11.25m11.992 0h.008v.008h-.008V11.25m.008 0H18v.008h.008V11.25M3 18.75V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25v13.5A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75Z" /></svg>
+                  </div>
+                  <span class="hud-status-badge status-orange">Global Maps</span>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">Map Territories</h3>
+                  <p class="card-description">
+                    Chart the active villages across the continent, detailing national regions and ruling Kage leaders.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  Update Map
+                  <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+
+
+
+
+
+        <!-- FORM: ADD JUTSU VIEW -->
+        @if (currentView() === 'add-jutsu') {
+          <div class="form-view-container animate-fade-in">
+            <button (click)="setView('home')" class="back-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>
+              Main Dashboard
+            </button>
+
+            <div class="form-box">
+              <div class="form-header">
+                <h2 class="form-title">Forge Jutsu Scroll</h2>
+                <p class="form-subtitle">Register dynamic elemental styles for your Shinobi.</p>
+              </div>
+
+              <form (submit)="createJutsu($event)" class="form-element">
+                <div class="form-group">
+                  <label class="form-label">Technique Name</label>
+                  <input 
+                    type="text" required id="jutsuName"
+                    placeholder="e.g. Chidori" 
+                    class="form-field"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Chakra Nature Element</label>
+                  <select id="jutsuElement" required class="form-field">
+                    <option value="Fire">Fire Release (Katon)</option>
+                    <option value="Water">Water Release (Suiton)</option>
+                    <option value="Lightning">Lightning Release (Raiton)</option>
+                    <option value="Earth">Earth Release (Doton)</option>
+                    <option value="Wind">Wind Release (Futon)</option>
+                    <option value="Taijutsu">Physical (Taijutsu)</option>
+                    <option value="Ninjutsu">Generic Ninjutsu</option>
+                  </select>
+                </div>
+
+                <!-- Associate with existing Shinobi (bidirectional tracking implementation) -->
+                <div class="form-group">
+                  <label class="form-label">Known By (Shinobi List)</label>
+                  <div class="checkbox-container">
+                    @for (ninja of shinobis(); track ninja.id) {
+                      <label class="checkbox-item">
+                        <input 
+                          type="checkbox" 
+                          [value]="ninja.id"
+                          (change)="toggleShinobiSelection(ninja.id)"
+                          class="hud-checkbox"
+                        >
+                        <div class="checkbox-meta">
+                          <span class="chk-name">{{ ninja.name }}</span>
+                          <span class="chk-element">[{{ ninja.rank }}]</span>
+                        </div>
+                      </label>
+                    } @empty {
+                      <div class="no-elements-message">No Shinobis registered yet. Add them first!</div>
+                    }
+                  </div>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="action-button submit-button">
+                    Register Jutsu
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        }
+
+        <!-- FORM: ADD VILLAGE VIEW -->
+        @if (currentView() === 'add-village') {
+          <div class="form-view-container animate-fade-in">
+            <button (click)="setView('home')" class="back-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>
+              Main Dashboard
+            </button>
+
+            <div class="form-box">
+              <div class="form-header">
+                <h2 class="form-title">Create Village Region</h2>
+                <p class="form-subtitle">Register geopolitical areas of the ninja world to expand diplomatic connections.</p>
+              </div>
+
+              <form (submit)="createVillage($event)" class="form-element">
+                <div class="form-group">
+                  <label class="form-label">Village Name</label>
+                  <input 
+                    type="text" required id="villageName"
+                    placeholder="e.g. Hidden Leaf Village" 
+                    class="form-field"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Active Kage Title</label>
+                  <input 
+                    type="text" required id="villageKageTitle"
+                    placeholder="e.g. Hokage" 
+                    class="form-field"
+                  >
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="action-button submit-button">
+                    Map Region
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        }
+
+      </main>
+    </div>

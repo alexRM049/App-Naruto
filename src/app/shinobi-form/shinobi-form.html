@@ -1,0 +1,42 @@
+<div class="form-container">
+  <h2>Add New Shinobi</h2>
+
+  <form [formGroup]="shinobiForm" (ngSubmit)="onSubmit()" class="shinobi-dark-form">
+    
+    <div class="form-control-group">
+      <label for="name">Shinobi Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="e.g., Sasuke Uchiha" />
+      @if (shinobiForm.get('name')?.touched && shinobiForm.get('name')?.invalid) {
+        <span class="error-text">A valid name (min 3 chars) is required.</span>
+      }
+    </div>
+
+    <div class="form-control-group">
+      <label for="rank">Rank</label>
+      <select id="rank" formControlName="rank">
+        @for (rankOption of ranks; track rankOption) {
+          <option [value]="rankOption">{{ rankOption }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-control-group">
+      <label for="photoUrl">Photo Image URL</label>
+      <input id="photoUrl" type="text" formControlName="photoUrl" placeholder="https://..." />
+    </div>
+
+    <div class="form-control-group">
+      <label for="villageId">Assigned Village</label>
+      <select id="villageId" formControlName="villageId">
+        <option value="" disabled>Choose a village...</option>
+        @for (v of villages(); track v.id) {
+          <option [value]="v.id">{{ v.name }}</option>
+        }
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="shinobiForm.invalid" class="btn-submit">
+      Deploy Shinobi
+    </button>
+  </form>
+</div>

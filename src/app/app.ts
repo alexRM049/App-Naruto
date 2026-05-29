@@ -2,6 +2,7 @@ import { ApplicationConfig, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Catalog } from './catalog/catalog';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { Header } from "./header/header";
 
 export const appConfig: ApplicationConfig = {
     providers: [provideHttpClient(withFetch())]
@@ -9,7 +10,7 @@ export const appConfig: ApplicationConfig = {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Catalog],
+  imports: [RouterOutlet, Catalog, Header],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

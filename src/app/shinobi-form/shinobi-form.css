@@ -1,0 +1,114 @@
+/* Container sizing and centering */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #121214; /* Deep ninja dark background */
+  border: 1px solid #2a2a30;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.form-container h2 {
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #ff6b00; /* Hidden Leaf Orange Accent */
+  padding-bottom: 10px;
+}
+
+/* The structural fix: Force vertical stacking */
+.shinobi-dark-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Even spacing between form sections */
+}
+
+.form-control-group {
+  display: flex;
+  flex-direction: column; /* Pushes label, input, and error onto distinct rows */
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Label styling */
+.form-control-group label {
+  color: #a0aec0; /* Balanced gray */
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Input and Select Element overrides */
+.form-control-group input,
+.form-control-group select {
+  width: 100%; /* Spans the entire width of the container */
+  padding: 12px 16px;
+  background-color: #1a1a1e;
+  border: 1px solid #3a3a42;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box; /* Crucial: ensures padding doesn't break width calculation */
+}
+
+/* Focus state with Chakra/Orange glow */
+.form-control-group input:focus,
+.form-control-group select:focus {
+  outline: none;
+  border-color: #ff6b00;
+  box-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+}
+
+/* Fix dropdown arrow color visibility if needed */
+.form-control-group select option {
+  background-color: #1a1a1e;
+  color: #ffffff;
+}
+
+/* Error message formatting */
+.error-text {
+  color: #e53e3e; /* Crimson red */
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Deploy Button */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff8c00, #ff5500);
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 85, 0, 0.4);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Disabled Form Button State */
+.btn-submit:disabled {
+  background: #2d2d35;
+  color: #718096;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}

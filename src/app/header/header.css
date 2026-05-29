@@ -1,0 +1,50 @@
+/* Custom Navbar Base Styles */
+.navbar-shinobi {
+  /* Subtle radial gradient to match the glow effect in the image */
+  background: radial-gradient(circle at center, #141619 0%, #0c0d0f 100%);
+  border-bottom: 2px solid #ff7a00; /* Orange accent line */
+  padding: 0.75rem 1.5rem;
+}
+
+/* Brand Text Formatting */
+.navbar-shinobi .navbar-brand {
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Orange Accent Word */
+.navbar-shinobi .navbar-brand .accent-text {
+  color: #ff7a00;
+}
+
+/* Navigation Links */
+.navbar-shinobi .navbar-nav .nav-link {
+  color: #6c7a89; /* Muted text color from description */
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Active Link State */
+.navbar-shinobi .navbar-nav .nav-link.active {
+  color: #ffffff;
+}
+
+/* Hover State */
+.navbar-shinobi .navbar-nav .nav-link:hover {
+  color: #ff9533; 
+}
+
+/* Disabled State */
+.navbar-shinobi .navbar-nav .nav-link.disabled {
+  color: #2c3036;
+}
+
+/* Toggler Customization for Mobile */
+.navbar-shinobi .navbar-toggler {
+  border-color: #ff7a00;
+}
+.navbar-shinobi .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 122, 0, 0.25);
+}

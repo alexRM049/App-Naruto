@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Global } from "../global";
-import { ShinobiModel } from "../catalog/shinobi.model";
+import { ShinobiModel } from "../models/shinobi.model";
 import { Observable } from "rxjs";
 
 

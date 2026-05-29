@@ -1,0 +1,39 @@
+<p>jutsu-form works!</p>
+<div class="form-container">
+  <h2>Add New Jutsu</h2>
+
+  <form [formGroup]="jutsuForm" (ngSubmit)="onSubmit()" class="shinobi-dark-form">
+
+    <div class="form-control-group">
+      <label for="name">Jutsu Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="e.g., Chidori" />
+      @if (jutsuForm.get('name')?.touched && jutsuForm.get('name')?.invalid) {
+        <span class="error-text">A valid name (min 3 chars) is required.</span>
+      }
+    </div>
+
+    <div class="form-control-group">
+      <label for="element">Element</label>
+      <select id="element" formControlName="element">
+        <option value="" disabled>Choose an element...</option>
+        @for (element of elements; track element) {
+          <option [value]="element">{{ element }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-control-group">
+      <label for="shinobiId">Assigned Shinobi</label>
+      <select id="shinobiId" formControlName="shinobiId">
+        <option value="" disabled>Choose a Shinobi...</option>
+        @for (v of shinobis(); track v.id) {
+          <option [value]="v.id">{{ v.name }}</option>
+        }
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="jutsuForm.invalid" class="btn-submit">
+      Deploy Jutsu
+    </button>
+  </form>
+</div>

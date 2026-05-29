@@ -287,3 +287,182 @@
     transform: translateY(0);
   }
 }
+
+/* ==========================================================================
+   
+
+/* ==========================================================================
+   SHINOBI ARCHIVE - TACTICAL FILTER BAR OVERRIDES
+   ========================================================================== */
+
+/* 1. Global Box-Sizing & Reset on Filter Controls */
+.navigation-row button,
+.filter-panel input,
+.filter-panel select {
+  margin: 0;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* 2. Navigation Row Container */
+.navigation-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 1.5rem !important;
+  width: 100% !important;
+  gap: 1rem !important;
+}
+
+/* 3. Main Dashboard Back Button Style */
+.back-button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #94a3b8 !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  cursor: pointer !important;
+  padding: 0.625rem 1.25rem !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.25s ease-in-out !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.back-button:hover {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 4. Deploy/Add Shinobi Action Button */
+.action-button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: #ff7a00 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.75px !important;
+  padding: 0.625rem 1.25rem !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid rgba(255, 122, 0, 0.5) !important;
+  cursor: pointer !important;
+  outline: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 12px rgba(255, 122, 0, 0.15) !important;
+}
+
+.action-button:hover {
+  background: #ff912a !important;
+  border-color: #ff912a !important;
+  box-shadow: 0 4px 20px rgba(255, 122, 0, 0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 5. Filter Panel Frame & Glow */
+.filter-panel {
+  background: #101214 !important;
+  border: 1px solid rgba(255, 122, 0, 0.15) !important;
+  border-radius: 1.25rem !important;
+  padding: 1.25rem !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5) !important;
+  margin-bottom: 2.5rem !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* 6. Grid Layout and Child stretching */
+.filter-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+  width: 100% !important;
+}
+
+/* Ensures wrappers inside the grid let form-fields stretch completely */
+.filter-grid > div {
+  width: 100% !important;
+  display: flex !important;
+}
+
+@media (min-width: 768px) {
+  .filter-grid {
+    grid-template-columns: 2fr 1fr 1fr !important;
+  }
+}
+
+/* 7. Input Container & Icon Placement */
+.search-input-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  display: flex !important;
+}
+
+.search-icon-inside {
+  position: absolute !important;
+  left: 1rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #ff7a00 !important;
+  display: flex !important;
+  align-items: center !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* 8. Unified Form Field Styles (Inputs and Dropdowns) */
+.form-field {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 100% !important;
+  padding: 0.875rem 1.25rem !important;
+  background: #08090a !important;
+  border: 1px solid rgba(255, 122, 0, 0.12) !important;
+  border-radius: 0.75rem !important;
+  color: #ffffff !important;
+  font-size: 0.9rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.form-field::placeholder {
+  color: #4b5563 !important;
+}
+
+/* Active Focus state */
+.form-field:focus {
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.2) !important;
+  background: #0d0e10 !important;
+}
+
+.form-field.with-icon {
+  padding-left: 2.75rem !important;
+}
+
+/* Dropdown Custom Arrow Implementation */
+select.form-field {
+  cursor: pointer !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff7a00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1.25rem center !important;
+  background-size: 1.1rem !important;
+  padding-right: 2.75rem !important;
+}
+
+/* Style options list dropdown background for basic dark mode integration */
+select.form-field option {
+  background: #0c0d0f !important;
+  color: #ffffff !important;
+}
